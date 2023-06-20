@@ -3,12 +3,15 @@ import "./style.css";
 
 export default function App() {
   const [data, setData] = useState([
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' },
-    { id: 3, name: 'Bob' },
-    // ... other array elements
+    { id: 1, name: 'ram' },
+    { id: 2, name: 'sita' },
+    { id: 3, name: 'hanuman' },
+    { id: 4, name: 'lakshman' },
+    { id: 5, name: 'bharat' },
+    { id: 6, name: 'shatrughn' },
+  
   ]);
-  const [searchQuery, setSearchQuery] = useState('');
+   const [search, setSearch] = useState('');
 
 
   return (
@@ -16,18 +19,19 @@ export default function App() {
       <input
         type="text"
         placeholder="Search..."
-        value={searchQuery}
-        onChange={e=>setSearchQuery(e.target.value)}
+        value={search}
+        onChange={e=>setSearch(e.target.value)}
       />
       <ul>
         {data
           .filter((item) =>
-            item.name.toLowerCase().includes(searchQuery.toLowerCase())
-          )
+          item.name.toLowerCase().includes(search.toLowerCase())
+        )
           .map((item) => (
             <li key={item.id}>{item.name}</li>
           ))}
       </ul>
+    
     </div>
   );
 }
